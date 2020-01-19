@@ -7,6 +7,8 @@ use Input;
 //
 use DB;
 
+use App\Home\Member;
+
 class TestController extends Controller
 {
     public function test1()
@@ -163,5 +165,19 @@ class TestController extends Controller
     public function test7()
     {
         echo "提交成功!";
+    }
+
+    //模型添加操作
+    public function modeladd()
+    {
+        //实例化模型,将表和类映射起来
+        $model = new Member();
+        //给属性赋值,将字段与类的属性映射起来
+        $model->name = "王五";
+        $model->age = 50;
+        $model->email = "test@test.com";
+        //去做具体的操作,将记录映射到实例
+        $model->save();
+        dd($model);     //可以看到模型的完整信息
     }
 }

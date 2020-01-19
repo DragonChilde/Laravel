@@ -102,3 +102,11 @@ Route::get('home/test/test5','TestController@test5');
 //验证CSRF
 Route::get('home/test/test6','TestController@test6');
 Route::post('home/test/test7','TestController@test7')->name('test7');
+
+//模型操作
+Route::group(['prefix'=>'home/test'],function(){
+    Route::get('/modeladd','TestController@modeladd');
+    Route::get('/modeldel','TestController@modeldel');
+    Route::get('/modelupdate','TestController@modelupdate');
+    Route::get('/modelselect','TestController@modelselect');
+});
