@@ -80,7 +80,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'zh-CN',
 
     /*
     |--------------------------------------------------------------------------
@@ -165,7 +165,8 @@ return [
         /*
          * Package Service Providers...
          */
-
+        //验证码的服务提供
+         Mews\Captcha\CaptchaServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -174,6 +175,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+
+        Barryvdh\Debugbar\ServiceProvider::class,
 
     ],
 
@@ -228,7 +231,10 @@ return [
 
         //自定义别名
         'Input'=> Illuminate\Support\Facades\Input::class,
+        //验证码别名
+        'Captcha' => Mews\Captcha\Facades\Captcha::class,
 
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
     ],
 
 ];

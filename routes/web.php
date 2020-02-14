@@ -105,8 +105,38 @@ Route::post('home/test/test7','TestController@test7')->name('test7');
 
 //模型操作
 Route::group(['prefix'=>'home/test'],function(){
-    Route::get('/modeladd','TestController@modeladd');
+    Route::any('/modeladd','TestController@modeladd');
     Route::get('/modeldel','TestController@modeldel');
     Route::get('/modelupdate','TestController@modelupdate');
     Route::get('/modelselect','TestController@modelselect');
+    Route::get('test8','TestController@test8');
 });
+
+//自动验证
+Route::any('home/test/auto_valid','TestController@autoValidation');
+
+//文件上传
+Route::any('home/test/uploadfile','TestController@uploadFile');
+
+//数据分页
+Route::any('home/test/paging','TestController@paging');
+
+//json响应
+Route::any('home/test/json','TestController@json');
+
+//Session
+Route::get('home/test/session','TestController@session');
+
+//缓存操作
+Route::get('home/test/cache','TestController@cache');
+
+//联表查询
+Route::get('home/test/jointable','TestController@jointable');
+
+//关联模型
+//一对一
+Route::get('home/test/joinmodeloneforone','TestController@joinModelOneForOne');
+//一对多
+Route::get('home/test/joinmodeloneformany','TestController@joinModelOneForMany');
+//多对多
+Route::get('home/test/joinmodelmanyformany','TestController@joinModelManyForMany');
